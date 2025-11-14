@@ -25,6 +25,7 @@ export const translations = {
     driveTimeSubtitle: "Select the duration of your driving block",
     drive2h: "2 hours",
     drive2to4h: "Between 2 and 4 hours",
+    drive4h: "4 hours (Close to limit)",
     drive45h: "4.5 hours (Maximum)",
     driveOther: "Other (More than 4.5h)",
     
@@ -39,6 +40,7 @@ export const translations = {
     // Ending Day Questions
     totalDriveTitle: "How much did you drive TODAY (total)?",
     totalDriveSubtitle: "Select your total driving time for the day",
+    drive8h: "8 hours (1 hour remaining)",
     drive9hOrLess: "9 hours or less",
     drive10h: "10 hours (Extension)",
     driveMoreThan10h: "More than 10 hours",
@@ -151,6 +153,7 @@ export const translations = {
     driveTimeSubtitle: "Zgjidhni kohëzgjatjen e bllokut tuaj të drejtimit",
     drive2h: "2 orë",
     drive2to4h: "Midis 2 dhe 4 orëve",
+    drive4h: "4 orë (Afër limitit)",
     drive45h: "4.5 orë (Maksimumi)",
     driveOther: "Tjetër (Më shumë se 4.5 orë)",
     
@@ -165,6 +168,7 @@ export const translations = {
     // Ending Day Questions
     totalDriveTitle: "Sa drejtuat SOT (totali)?",
     totalDriveSubtitle: "Zgjidhni kohën tuaj totale të drejtimit për ditën",
+    drive8h: "8 orë (1 orë e mbetur)",
     drive9hOrLess: "9 orë ose më pak",
     drive10h: "10 orë (Zgjatje)",
     driveMoreThan10h: "Më shumë se 10 orë",
@@ -277,6 +281,7 @@ export const translations = {
     driveTimeSubtitle: "Seleziona la durata del tuo blocco di guida",
     drive2h: "2 ore",
     drive2to4h: "Tra 2 e 4 ore",
+    drive4h: "4 ore (Vicino al limite)",
     drive45h: "4,5 ore (Massimo)",
     driveOther: "Altro (Più di 4,5 ore)",
     
@@ -291,6 +296,7 @@ export const translations = {
     // Ending Day Questions
     totalDriveTitle: "Quanto hai guidato OGGI (totale)?",
     totalDriveSubtitle: "Seleziona il tuo tempo di guida totale per il giorno",
+    drive8h: "8 ore (1 ora rimanente)",
     drive9hOrLess: "9 ore o meno",
     drive10h: "10 ore (Estensione)",
     driveMoreThan10h: "Più di 10 ore",
@@ -403,6 +409,7 @@ export const translations = {
     driveTimeSubtitle: "Επιλέξτε τη διάρκεια του μπλοκ οδήγησής σας",
     drive2h: "2 ώρες",
     drive2to4h: "Μεταξύ 2 και 4 ωρών",
+    drive4h: "4 ώρες (Κοντά στο όριο)",
     drive45h: "4,5 ώρες (Μέγιστο)",
     driveOther: "Άλλο (Περισσότερο από 4,5 ώρες)",
     
@@ -417,6 +424,7 @@ export const translations = {
     // Ending Day Questions
     totalDriveTitle: "Πόσο οδηγήσατε ΣΗΜΕΡΑ (σύνολο);",
     totalDriveSubtitle: "Επιλέξτε τον συνολικό χρόνο οδήγησής σας για τη μέρα",
+    drive8h: "8 ώρες (1 ώρα απομένει)",
     drive9hOrLess: "9 ώρες ή λιγότερο",
     drive10h: "10 ώρες (Επέκταση)",
     driveMoreThan10h: "Περισσότερο από 10 ώρες",

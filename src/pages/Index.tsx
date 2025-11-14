@@ -32,10 +32,11 @@ const Index = () => {
   });
 
   const [result, setResult] = useState<{
-    status: "legal" | "warning" | "violation";
-    title: string;
-    subtitle: string;
-    message: string;
+  status: "legal" | "warning" | "violation";
+  title: string;
+  subtitle: string;
+  message: string;
+  funFact?: string;
   } | null>(null);
 
   const saveActivity = async (activityData: any) => {
@@ -77,6 +78,7 @@ const Index = () => {
         title: t("statusLegal"),
         subtitle: t("legalTag"),
         message: t("startDayMessage"),
+        funFact: "A well-rested driver is 50% less likely to be involved in an accident. The daily rest requirements (11 hours or minimum 9 hours reduced) are based on sleep science ensuring drivers get adequate recovery time.",
       });
       setStep("result");
     } else if (flow === "finished-driving") {
@@ -98,6 +100,7 @@ const Index = () => {
           title: t("statusLegal"),
           subtitle: t("legalTag"),
           message: "Your previous break was valid and resets your driving clock. You have 4.5 hours of driving time available.",
+          funFact: "The 4.5-hour rule is based on circadian rhythm research. Studies show that concentration naturally dips after about 4 hours of continuous activity, making breaks essential for safety.",
         };
       } else {
         return {
@@ -105,11 +108,22 @@ const Index = () => {
           title: t("statusViolation"),
           subtitle: t("violationTag"),
           message: "You drove for 4.5 hours, but your previous break was not sufficient to reset the clock. SUGGESTION: You must take a full 45-minute break immediately.",
+          funFact: "A proper 45-minute break allows both physical and mental recovery. Research shows it reduces micro-sleep episodes (brief moments of unintended sleep) by up to 80%.",
         };
       }
     }
 
     const remainingTime = driveTime === "2h" ? "2.5" : driveTime === "2-4h" ? "0.5-2.5" : "4";
+
+    if (driveTime === "2-4h" || driveTime === "4h") {
+      return {
+        status: "warning" as const,
+        title: t("statusWarning"),
+        subtitle: t("warningTag"),
+        message: `You are approaching your 4.5-hour limit. You have approximately ${remainingTime} hours remaining. Plan your next break soon.`,
+        funFact: "Pro tip: Experienced drivers often take their break at the 4-hour mark rather than waiting for 4.5 hours, ensuring they never cut it too close.",
+      };
+    }
 
     if (
       breakType === "full-rest" ||
@@ -121,6 +135,7 @@ const Index = () => {
         title: t("statusLegal"),
         subtitle: t("legalTag"),
         message: `You are fully compliant. You have approximately ${remainingTime} hours of driving time remaining before you must take a 45-minute break.`,
+        funFact: "The split break option (15+30 minutes) was introduced to give drivers flexibility while ensuring adequate rest. Many drivers use the 15-minute portion for vehicle checks.",
       };
     } else if (breakType === "15min") {
       return {
@@ -128,6 +143,7 @@ const Index = () => {
         title: t("statusWarning"),
         subtitle: t("warningTag"),
         message: "You have correctly started a split break (15 min). SUGGESTION: To complete this break, your next break must be at least 30 minutes (taken within your 4.5h driving limit).",
+        funFact: "The 15+30 split must be in that exact order because the longer 30-minute portion is when most recovery occurs. The sequence is scientifically designed for optimal fatigue reduction.",
       };
     } else if (breakType === "30min") {
       return {
@@ -135,6 +151,7 @@ const Index = () => {
         title: t("statusWarning"),
         subtitle: t("warningTag"),
         message: "Your 30-minute break does not count as the first part of a split break (it must be 15-min first). SUGGESTION: Your next break must be a full 45-minute break.",
+        funFact: "This rule prevents drivers from gaming the system. The 15-30 sequence was specifically designed based on fatigue research to ensure proper recovery timing.",
       };
     }
 
@@ -143,16 +160,26 @@ const Index = () => {
       title: t("statusWarning"),
       subtitle: t("warningTag"),
       message: "Your break type is unclear. Please ensure you take a full 45-minute break before continuing.",
+      funFact: "When in doubt, take a full 45-minute break. It's not just about compliance—proper rest can save lives, including your own.",
     };
   };
 
-  const checkDailyDrivingRules = (totalDrive: string, extensions: string) => {
+  const checkDailyDrivingRules = (totalDrive: string, extensions: string | null = null) => {
     if (totalDrive === "9h-or-less") {
       return {
         status: "legal" as const,
         title: t("statusLegal"),
         subtitle: t("legalTag"),
         message: "You are compliant with the 9-hour daily driving limit. You can now begin your daily rest period.",
+        funFact: "Did you know? The 9-hour daily limit was established after extensive fatigue studies showed that driver alertness significantly decreases after 8-9 hours of continuous driving, increasing accident risk by up to 300%.",
+      };
+    } else if (totalDrive === "8h") {
+      return {
+        status: "warning" as const,
+        title: t("statusWarning"),
+        subtitle: t("warningTag"),
+        message: "You have 1 hour remaining of your 9-hour daily limit. Plan to finish your drive soon or prepare to use a 10-hour extension if needed (and you have extensions available).",
+        funFact: "Smart planning tip: Professional drivers often plan their routes to account for this time limit, ensuring rest stops are strategically placed to maintain compliance.",
       };
     } else if (totalDrive === "10h") {
       if (extensions === "1st" || extensions === "2nd") {
@@ -161,6 +188,7 @@ const Index = () => {
           title: t("statusLegal"),
           subtitle: t("legalTag"),
           message: "You have legally used one of your two 10-hour extensions for the week. SUGGESTION: You must now begin your daily rest.",
+          funFact: "The two 10-hour extensions per week provide flexibility for unexpected delays while maintaining overall safety standards across the industry.",
         };
       } else {
         return {
@@ -168,6 +196,7 @@ const Index = () => {
           title: t("statusViolation"),
           subtitle: t("violationTag"),
           message: "You cannot drive for 10 hours three times in one week. You are in violation. SUGGESTION: Park the vehicle and report this to your manager.",
+          funFact: "This rule prevents chronic fatigue accumulation. Studies show that even with adequate daily rest, repeated long driving days without sufficient weekly recovery significantly increase accident risk.",
         };
       }
     } else {
@@ -176,6 +205,7 @@ const Index = () => {
         title: t("statusViolation"),
         subtitle: t("violationTag"),
         message: "You cannot drive for more than 10 hours in a single day. You are in violation. SUGGESTION: Park the vehicle immediately and report this to your manager.",
+        funFact: "Beyond 10 hours of driving, reaction times can be comparable to driving under the influence of alcohol. This limit is non-negotiable for driver and public safety.",
       };
     }
   };
@@ -204,6 +234,26 @@ const Index = () => {
 
   const handleTotalDriveChoice = (totalDrive: string) => {
     setWizardState({ ...wizardState, totalDrive });
+    
+    // If 9h-or-less or more-than-10h, show result immediately (no extensions question needed)
+    if (totalDrive === "9h-or-less" || totalDrive === "more-than-10h" || totalDrive === "8h") {
+      const result = checkDailyDrivingRules(totalDrive, null);
+      setResult(result);
+      setStep("result");
+      
+      // Save activity
+      saveActivity({
+        flow_type: 'endingDay',
+        drive_time: null,
+        break_type: null,
+        total_drive: totalDrive,
+        extensions: null,
+        result_status: result.status,
+        result_title: result.title,
+        result_message: result.message,
+      });
+    }
+    // For 10h, we need to ask about extensions
   };
 
   const handleExtensionsChoice = (extensions: string) => {
@@ -289,6 +339,12 @@ const Index = () => {
               />
               <WizardButton
                 icon={Clock}
+                label={t("drive4h")}
+                onClick={() => handleDriveTimeChoice("4h")}
+                variant="secondary"
+              />
+              <WizardButton
+                icon={Clock}
                 label={t("drive45h")}
                 onClick={() => handleDriveTimeChoice("4.5h")}
                 variant="secondary"
@@ -357,6 +413,12 @@ const Index = () => {
             <div className="space-y-5 px-4">
               <WizardButton
                 icon={Clock}
+                label={t("drive8h")}
+                onClick={() => handleTotalDriveChoice("8h")}
+                variant="secondary"
+              />
+              <WizardButton
+                icon={Clock}
                 label={t("drive9hOrLess")}
                 onClick={() => handleTotalDriveChoice("9h-or-less")}
                 variant="secondary"
@@ -415,7 +477,8 @@ const Index = () => {
               status={result.status} 
               title={result.title} 
               subtitle={result.subtitle}
-              message={result.message} 
+              message={result.message}
+              funFact={result.funFact}
             />
 
             <div className="flex justify-center">
