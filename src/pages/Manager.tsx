@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Upload, Loader2, FileCheck } from "lucide-react";
-import Layout from "@/components/Layout";
+import { Upload, Loader2 } from "lucide-react";
+import Layout, { useLanguage } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 type ViewState = "login" | "dashboard" | "loading" | "report";
 
 const Manager = () => {
+  const { t } = useLanguage();
   const [viewState, setViewState] = useState<ViewState>("login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,8 +19,8 @@ const Manager = () => {
     if (username && password) {
       setViewState("dashboard");
       toast({
-        title: "Login Successful",
-        description: "Welcome to Fleet Manager Portal",
+        title: t("loginSuccess"),
+        description: t("welcomeMessage"),
       });
     }
   };
@@ -30,8 +31,8 @@ const Manager = () => {
 
     if (!file.name.endsWith(".ddd")) {
       toast({
-        title: "Invalid File Type",
-        description: "Please upload a .DDD file",
+        title: t("invalidFileType"),
+        description: t("uploadDDDOnly"),
         variant: "destructive",
       });
       return;
@@ -43,8 +44,8 @@ const Manager = () => {
     setTimeout(() => {
       setViewState("report");
       toast({
-        title: "Analysis Complete",
-        description: "Driver compliance report generated",
+        title: t("analysisComplete"),
+        description: t("reportGenerated"),
       });
     }, 3000);
   };
@@ -75,43 +76,43 @@ const Manager = () => {
 
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto py-4">
         {/* Login View */}
         {viewState === "login" && (
           <div className="max-w-md mx-auto fade-slide-up">
-            <div className="bg-white rounded-2xl p-8 float-shadow space-y-6">
-              <div className="text-center space-y-2">
-                <h2 className="text-3xl font-bold text-foreground">Fleet Manager Portal</h2>
-                <p className="text-muted-foreground">Login to access driver compliance data</p>
+            <div className="bg-white rounded-3xl p-10 float-shadow space-y-8">
+              <div className="text-center space-y-3">
+                <h2 className="text-4xl font-bold text-foreground">{t("managerTitle")}</h2>
+                <p className="text-muted-foreground text-lg">{t("managerSubtitle")}</p>
               </div>
 
-              <form onSubmit={handleLogin} className="space-y-4">
+              <form onSubmit={handleLogin} className="space-y-6">
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">Username</label>
+                  <label className="text-sm font-semibold text-foreground mb-2 block">{t("username")}</label>
                   <Input
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Enter your username"
-                    className="w-full"
+                    placeholder={t("username")}
+                    className="w-full h-12"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">Password</label>
+                  <label className="text-sm font-semibold text-foreground mb-2 block">{t("password")}</label>
                   <Input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter your password"
-                    className="w-full"
+                    placeholder={t("password")}
+                    className="w-full h-12"
                     required
                   />
                 </div>
 
-                <Button type="submit" className="w-full button-hover-scale" size="lg">
-                  Login to Dashboard
+                <Button type="submit" className="w-full button-hover-scale h-12 text-lg" size="lg">
+                  {t("loginButton")}
                 </Button>
               </form>
             </div>
@@ -120,15 +121,15 @@ const Manager = () => {
 
         {/* Dashboard View */}
         {viewState === "dashboard" && (
-          <div className="space-y-8 fade-slide-up">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-foreground">Company Dashboard</h2>
-              <p className="text-lg text-muted-foreground">
-                Upload digital tachograph files (.DDD) for compliance analysis
+          <div className="space-y-10 fade-slide-up">
+            <div className="text-center space-y-5">
+              <h2 className="text-5xl font-bold text-foreground">{t("dashboardTitle")}</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                {t("dashboardSubtitle")}
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-12 float-shadow">
+            <div className="bg-white rounded-3xl p-12 float-shadow">
               <label className="cursor-pointer block">
                 <input
                   type="file"
@@ -136,12 +137,12 @@ const Manager = () => {
                   onChange={handleFileUpload}
                   className="hidden"
                 />
-                <div className="flex flex-col items-center justify-center space-y-4 py-12 border-2 border-dashed border-muted rounded-xl hover:border-primary transition-colors button-hover-scale">
-                  <Upload className="w-16 h-16 text-primary" />
-                  <div className="text-center space-y-2">
-                    <p className="text-xl font-semibold text-foreground">Upload .DDD File</p>
-                    <p className="text-sm text-muted-foreground">
-                      Click to browse or drag and drop your file here
+                <div className="flex flex-col items-center justify-center space-y-6 py-16 border-2 border-dashed border-muted rounded-2xl hover:border-primary transition-colors button-hover-scale">
+                  <Upload className="w-20 h-20 text-primary" />
+                  <div className="text-center space-y-3">
+                    <p className="text-2xl font-semibold text-foreground">{t("uploadButton")}</p>
+                    <p className="text-base text-muted-foreground max-w-md">
+                      {t("uploadInstruction")}
                     </p>
                   </div>
                 </div>
@@ -152,50 +153,50 @@ const Manager = () => {
 
         {/* Loading View */}
         {viewState === "loading" && (
-          <div className="flex flex-col items-center justify-center space-y-6 py-20 fade-slide-up">
-            <Loader2 className="w-16 h-16 text-primary animate-spin" />
-            <div className="text-center space-y-2">
-              <h3 className="text-2xl font-bold text-foreground">Analyzing Driver Data...</h3>
-              <p className="text-muted-foreground">Processing tachograph file and checking compliance rules</p>
+          <div className="flex flex-col items-center justify-center space-y-8 py-20 fade-slide-up">
+            <Loader2 className="w-20 h-20 text-primary animate-spin" />
+            <div className="text-center space-y-3">
+              <h3 className="text-3xl font-bold text-foreground">{t("analyzingTitle")}</h3>
+              <p className="text-muted-foreground text-lg max-w-2xl">{t("analyzingSubtitle")}</p>
             </div>
           </div>
         )}
 
         {/* Report View */}
         {viewState === "report" && (
-          <div className="space-y-8 fade-slide-up">
+          <div className="space-y-10 fade-slide-up">
             <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-3xl font-bold text-foreground">Compliance Report</h2>
-                <p className="text-muted-foreground mt-1">Weekly driver activity analysis</p>
+              <div className="space-y-2">
+                <h2 className="text-4xl font-bold text-foreground">{t("reportTitle")}</h2>
+                <p className="text-muted-foreground text-lg">{t("reportSubtitle")}</p>
               </div>
               <Button
                 onClick={() => setViewState("dashboard")}
                 variant="outline"
-                className="button-hover-scale"
+                className="button-hover-scale h-12 px-6"
               >
-                Upload New File
+                {t("uploadNewFile")}
               </Button>
             </div>
 
-            <div className="bg-white rounded-2xl overflow-hidden float-shadow">
+            <div className="bg-white rounded-3xl overflow-hidden float-shadow">
               <table className="w-full">
                 <thead className="bg-muted">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Driver Name</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Date Range</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Status</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Violations Found</th>
+                    <th className="px-6 py-5 text-left text-sm font-bold text-foreground">{t("driverName")}</th>
+                    <th className="px-6 py-5 text-left text-sm font-bold text-foreground">{t("dateRange")}</th>
+                    <th className="px-6 py-5 text-left text-sm font-bold text-foreground">{t("status")}</th>
+                    <th className="px-6 py-5 text-left text-sm font-bold text-foreground">{t("violationsFound")}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
                   {mockReportData.map((row, index) => (
                     <tr key={index} className="hover:bg-muted/50 transition-colors">
-                      <td className="px-6 py-4 text-foreground font-medium">{row.driver}</td>
-                      <td className="px-6 py-4 text-muted-foreground">{row.dateRange}</td>
-                      <td className="px-6 py-4">
+                      <td className="px-6 py-5 text-foreground font-semibold">{row.driver}</td>
+                      <td className="px-6 py-5 text-muted-foreground">{row.dateRange}</td>
+                      <td className="px-6 py-5">
                         <span
-                          className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                          className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold ${
                             row.status === "compliant"
                               ? "bg-go-green/10 text-go-green"
                               : row.status === "warning"
@@ -203,24 +204,24 @@ const Manager = () => {
                               : "bg-stop-red/10 text-stop-red"
                           }`}
                         >
-                          {row.status === "compliant" ? "Compliant" : row.status === "warning" ? "Warning" : "VIOLATION"}
+                          {row.status === "compliant" ? t("compliant") : row.status === "warning" ? t("warning") : t("violation")}
                         </span>
                       </td>
-                      <td className="px-6 py-4">
+                      <td className="px-6 py-5">
                         {row.violations > 0 ? (
                           <button
                             onClick={() => {
                               toast({
-                                title: "Violation Details",
-                                description: row.details || "No details available",
+                                title: t("violationDetails"),
+                                description: row.details || t("noDetails"),
                               });
                             }}
-                            className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-stop-red text-stop-red-foreground hover:bg-stop-red/90 transition-colors"
+                            className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-stop-red text-stop-red-foreground hover:bg-stop-red/90 transition-colors"
                           >
                             {row.violations}
                           </button>
                         ) : (
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-muted text-muted-foreground">
+                          <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-muted text-muted-foreground">
                             0
                           </span>
                         )}

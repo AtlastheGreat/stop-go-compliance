@@ -12,15 +12,19 @@ const WizardButton = ({ icon: Icon, label, onClick, variant = "default" }: Wizar
   return (
     <Button
       onClick={onClick}
-      className={`w-full py-6 px-6 text-left flex items-center space-x-4 button-hover-scale float-shadow ${
+      className={`w-full py-8 px-8 text-left flex items-center space-x-6 button-hover-scale float-shadow rounded-2xl ${
         variant === "default"
           ? "bg-primary hover:bg-primary-hover text-primary-foreground"
           : "bg-white hover:bg-white/90 text-foreground"
       }`}
       size="lg"
     >
-      <Icon className="w-6 h-6 flex-shrink-0" />
-      <span className="font-medium text-base">{label}</span>
+      <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center ${
+        variant === "default" ? "bg-primary-foreground/20" : "bg-primary/10"
+      }`}>
+        <Icon className="w-7 h-7" strokeWidth={2.5} />
+      </div>
+      <span className="font-semibold text-lg flex-1">{label}</span>
     </Button>
   );
 };
