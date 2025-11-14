@@ -14,7 +14,75 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      driver_activities: {
+        Row: {
+          break_type: string | null
+          created_at: string | null
+          drive_time: string | null
+          extensions: string | null
+          flow_type: string
+          id: string
+          result_message: string | null
+          result_status: string | null
+          result_title: string | null
+          total_drive: string | null
+          user_id: string
+        }
+        Insert: {
+          break_type?: string | null
+          created_at?: string | null
+          drive_time?: string | null
+          extensions?: string | null
+          flow_type: string
+          id?: string
+          result_message?: string | null
+          result_status?: string | null
+          result_title?: string | null
+          total_drive?: string | null
+          user_id: string
+        }
+        Update: {
+          break_type?: string | null
+          created_at?: string | null
+          drive_time?: string | null
+          extensions?: string | null
+          flow_type?: string
+          id?: string
+          result_message?: string | null
+          result_status?: string | null
+          result_title?: string | null
+          total_drive?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          company: string | null
+          created_at: string | null
+          full_name: string | null
+          id: string
+          role: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string | null
+          full_name?: string | null
+          id: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string | null
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
