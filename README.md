@@ -1,73 +1,35 @@
-# Welcome to your Lovable project
+# Projekti "Stop&Go"
 
-## Project info
+Ky është një prototip funksional për konkursin TIS (Transport, Inovacion, Siguri).
 
-**URL**: https://lovable.dev/projects/9a848ab7-aac2-49d6-8351-94993f4bf983
+## 1. Informacioni Kryesor
 
-## How can I edit this code?
+* **LINKU LIVE (REKOMANDOHET):** **[https://stopgo.lovable.app/](https://stopgo.lovable.app/)**
+* **KODI BURIM (GitHub):** **[https://github.com/AtlastheGreat/stop-go-compliance](https://github.com/AtlastheGreat/stop-go-compliance)**
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 2. Shënim i Rëndësishëm për Jurinë
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9a848ab7-aac2-49d6-8351-94993f4bf983) and start prompting.
+**Ju lutemi, përdorni linkun LIVE më sipër për të parë projektin funksional.**
 
-Changes made via Lovable will be committed automatically to this repo.
+Ky projekt është një aplikacion modern (React/Node.js) dhe jo një faqe e thjeshtë HTML. Skedari `.zip` që keni shkarkuar përmban **kodin burim të plotë** të aplikacionit.
 
-**Use your preferred IDE**
+**Ky nuk është një skedar `index.html` që mund të hapet me double-click.** Metoda e vetme e përdorimit është përmes linkut live, i cili është plotësisht funksional dhe i lidhur me databazën e tij.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 3. Përshkrimi i Projektit
 
-Follow these steps:
+"Stop&Go" është një platformë "Expert System" e krijuar për të zgjidhur një problem kritik për industrinë e transportit në Shqipëri: pajtueshmërinë me rregullat komplekse të orareve të shoferëve të BE-së (EC 561/2006). Ajo i shërben dy audiencave kryesore:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1.  **Shoferët në Rrugë:** Me anë të një "Driver Wizard" të shpejtë, të sigurt dhe 100% të bazuar në butona, shoferi mund të verifikojë statusin e tij ligjor në sekonda.
+2.  **Menaxherët e Flotave:** Me anë të një portali B2B ("Manager Portal"), kompanitë mund të ngarkojnë skedarët e takografit (`.DDD`) dhe të marrin një analizë të automatizuar të shkeljeve.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Ky projekt rrit **sigurinë rrugore** duke parandaluar lodhjen e shoferëve dhe ndihmon kompanitë shqiptare të shmangin gjobat e rënda kur operojnë në BE.
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 4. Shënim mbi Metodologjinë e Zhvillimit
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9a848ab7-aac2-49d6-8351-94993f4bf983) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+"Për ta sjellë këtë vizion në jetë shpejt dhe me një cilësi të lartë, kam përdorur mjetet më moderne të zhvillimit, përfshirë platformat e AI. Unë kam shërbyer si arkitekti i sistemit dhe menaxheri i produktit, duke drejtuar AI-në për të gjeneruar kodin sipas specifikave të mia të sakta—nga logjika e 'Sistemit Ekspert' deri te animacionet 'high-end' të ndërfaqes."
