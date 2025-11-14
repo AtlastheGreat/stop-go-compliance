@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Upload, Loader2 } from "lucide-react";
+import { Upload, Loader2, PlayCircle } from "lucide-react";
 import { useLanguage } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,6 +48,19 @@ const Manager = () => {
         description: t("reportGenerated"),
       });
     }, 3000);
+  };
+
+  const handleDemo = () => {
+    setViewState("loading");
+    
+    // Simulate demo data loading
+    setTimeout(() => {
+      setViewState("report");
+      toast({
+        title: t("analysisComplete"),
+        description: t("reportGenerated"),
+      });
+    }, 2000);
   };
 
   const mockReportData = [
@@ -128,24 +141,41 @@ const Manager = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl p-12 float-shadow">
-            <label className="cursor-pointer block">
-              <input
-                type="file"
-                accept=".ddd"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
-              <div className="flex flex-col items-center justify-center space-y-6 py-16 border-2 border-dashed border-muted rounded-2xl hover:border-primary transition-colors button-hover-scale">
-                <Upload className="w-20 h-20 text-primary" />
-                <div className="text-center space-y-3">
-                  <p className="text-2xl font-semibold text-foreground">{t("uploadButton")}</p>
-                  <p className="text-base text-muted-foreground max-w-md">
-                    {t("uploadInstruction")}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-3xl p-8 float-shadow">
+              <label className="cursor-pointer block">
+                <input
+                  type="file"
+                  accept=".ddd"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+                <div className="flex flex-col items-center justify-center space-y-6 py-12 border-2 border-dashed border-muted rounded-2xl hover:border-primary transition-colors button-hover-scale">
+                  <Upload className="w-16 h-16 text-primary" />
+                  <div className="text-center space-y-2">
+                    <p className="text-xl font-semibold text-foreground">{t("uploadButton")}</p>
+                    <p className="text-sm text-muted-foreground max-w-xs">
+                      {t("uploadInstruction")}
+                    </p>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 float-shadow">
+              <button
+                onClick={handleDemo}
+                className="w-full h-full flex flex-col items-center justify-center space-y-6 py-12 border-2 border-dashed border-primary/30 rounded-2xl hover:border-primary hover:bg-primary/5 transition-all button-hover-scale"
+              >
+                <PlayCircle className="w-16 h-16 text-primary" />
+                <div className="text-center space-y-2">
+                  <p className="text-xl font-semibold text-foreground">{t("demoButton")}</p>
+                  <p className="text-sm text-muted-foreground max-w-xs">
+                    {t("demoDescription")}
                   </p>
                 </div>
-              </div>
-            </label>
+              </button>
+            </div>
           </div>
         </div>
       )}
