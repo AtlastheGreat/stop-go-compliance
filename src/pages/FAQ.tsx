@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
-import Layout, { useLanguage } from "@/components/Layout";
+import { useLanguage } from "@/components/Layout";
 
 interface FAQItem {
   question: string;
@@ -39,60 +39,58 @@ const FAQ = () => {
   };
 
   return (
-    <Layout>
-      <div className="max-w-4xl mx-auto py-4">
-        <div className="text-center space-y-5 mb-16 fade-slide-up px-4">
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">{t("faqTitle")}</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t("faqSubtitle")}
-          </p>
-        </div>
+    <div className="max-w-4xl mx-auto py-4">
+      <div className="text-center space-y-5 mb-16 fade-slide-up px-4">
+        <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">{t("faqTitle")}</h2>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          {t("faqSubtitle")}
+        </p>
+      </div>
 
-        <div className="space-y-5 px-4">
-          {faqData.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl overflow-hidden float-shadow fade-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+      <div className="space-y-5 px-4">
+        {faqData.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-2xl overflow-hidden float-shadow fade-slide-up"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <button
+              onClick={() => toggleAccordion(index)}
+              className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
             >
-              <button
-                onClick={() => toggleAccordion(index)}
-                className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
-              >
-                <span className="text-xl font-bold text-foreground pr-4">{item.question}</span>
-                <ChevronRight
-                  className={`w-7 h-7 text-primary flex-shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? "rotate-90" : ""
-                  }`}
-                />
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+              <span className="text-xl font-bold text-foreground pr-4">{item.question}</span>
+              <ChevronRight
+                className={`w-7 h-7 text-primary flex-shrink-0 transition-transform duration-300 ${
+                  openIndex === index ? "rotate-90" : ""
                 }`}
-              >
-                <div className="px-8 pb-6 text-muted-foreground leading-relaxed text-lg">{item.answer}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+              />
+            </button>
 
-        <div className="mt-16 p-8 bg-primary/5 border border-primary/20 rounded-2xl fade-slide-up mx-4">
-          <div className="flex items-start space-x-6">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-              <span className="text-primary font-bold text-2xl">!</span>
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                openIndex === index ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="px-8 pb-6 text-muted-foreground leading-relaxed text-lg">{item.answer}</div>
             </div>
-            <div className="space-y-3">
-              <h3 className="font-bold text-foreground text-xl">{t("needMoreHelp")}</h3>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                {t("helpMessage")}
-              </p>
-            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-16 p-8 bg-primary/5 border border-primary/20 rounded-2xl fade-slide-up mx-4">
+        <div className="flex items-start space-x-6">
+          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <span className="text-primary font-bold text-2xl">!</span>
+          </div>
+          <div className="space-y-3">
+            <h3 className="font-bold text-foreground text-xl">{t("needMoreHelp")}</h3>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              {t("helpMessage")}
+            </p>
           </div>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 

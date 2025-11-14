@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Play, CheckCircle, Moon, Clock, Coffee } from "lucide-react";
-import Layout, { useLanguage } from "@/components/Layout";
+import { useLanguage } from "@/components/Layout";
 import WizardButton from "@/components/wizard/WizardButton";
 import ResultCard from "@/components/wizard/ResultCard";
 
@@ -178,11 +178,10 @@ const Index = () => {
   };
 
   return (
-    <Layout>
-      <div className="max-w-4xl mx-auto py-4">
-        {/* Initial Step */}
-        {step === "initial" && (
-          <div className="space-y-10 fade-slide-up">
+    <div className="max-w-4xl mx-auto py-4">
+      {/* Initial Step */}
+      {step === "initial" && (
+        <div className="space-y-10 fade-slide-up">
             <div className="text-center space-y-5 px-4">
               <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">{t("initialTitle")}</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("initialSubtitle")}</p>
@@ -371,7 +370,6 @@ const Index = () => {
           </div>
         )}
       </div>
-    </Layout>
   );
 };
 
