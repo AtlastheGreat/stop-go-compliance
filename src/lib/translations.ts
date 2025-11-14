@@ -94,6 +94,8 @@ export const translations = {
     violation: "VIOLATION",
     violationDetails: "Violation Details",
     noDetails: "No details available",
+    demoButton: "View Demo Report",
+    demoDescription: "See a sample compliance report with demo data",
     
     // FAQ
     faqTitle: "Expert Hub: Complex Rules",
@@ -195,6 +197,8 @@ export const translations = {
     violation: "SHKELJE",
     violationDetails: "Detaje të Shkeljeve",
     noDetails: "Nuk ka detaje të disponueshme",
+    demoButton: "Shiko Raportin Demo",
+    demoDescription: "Shikoni një raport pajtueshmërie shembull me të dhëna demo",
     
     // FAQ
     faqTitle: "Qendra e Ekspertëve: Rregulla Komplekse",
@@ -296,6 +300,8 @@ export const translations = {
     violation: "VIOLAZIONE",
     violationDetails: "Dettagli Violazioni",
     noDetails: "Nessun dettaglio disponibile",
+    demoButton: "Visualizza Rapporto Demo",
+    demoDescription: "Vedi un rapporto di conformità di esempio con dati dimostrativi",
     
     // FAQ
     faqTitle: "Centro Esperti: Regole Complesse",
@@ -397,6 +403,8 @@ export const translations = {
     violation: "ΠΑΡΑΒΑΣΗ",
     violationDetails: "Λεπτομέρειες Παραβάσεων",
     noDetails: "Δεν υπάρχουν διαθέσιμες λεπτομέρειες",
+    demoButton: "Προβολή Demo Αναφοράς",
+    demoDescription: "Δείτε μια δείγμα αναφορά συμμόρφωσης με δεδομένα επίδειξης",
     
     // FAQ
     faqTitle: "Κέντρο Εμπειρογνωμόνων: Σύνθετοι Κανόνες",
