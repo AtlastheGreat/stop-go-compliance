@@ -5,9 +5,10 @@ interface ResultCardProps {
   title: string;
   subtitle: string;
   message: string;
+  funFact?: string;
 }
 
-const ResultCard = ({ status, title, subtitle, message }: ResultCardProps) => {
+const ResultCard = ({ status, title, subtitle, message, funFact }: ResultCardProps) => {
   const statusConfig = {
     legal: {
       icon: CheckCircle,
@@ -55,6 +56,15 @@ const ResultCard = ({ status, title, subtitle, message }: ResultCardProps) => {
         <div className={`p-6 rounded-2xl ${config.badgeBg} backdrop-blur-sm`}>
           <p className="text-lg leading-relaxed font-medium">{message}</p>
         </div>
+        
+        {/* Fun Fact Section */}
+        {funFact && (
+          <div className="mt-4 p-4 rounded-xl bg-white/10 border border-white/20">
+            <p className="text-sm leading-relaxed opacity-90 italic">
+              💡 {funFact}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
