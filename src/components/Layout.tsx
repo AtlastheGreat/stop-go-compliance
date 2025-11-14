@@ -1,6 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import { createContext, useContext, useState, ReactNode } from "react";
+import { LogOut, User } from "lucide-react";
 import { Language, getTranslation } from "@/lib/translations";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "./ui/button";
 
 interface LayoutProps {
   children: ReactNode;
@@ -23,6 +26,7 @@ export const useLanguage = () => {
 const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   const [language, setLanguage] = useState<Language>("EN");
+  const { user, signOut } = useAuth();
 
   const t = (key: string) => getTranslation(language, key as any);
 
@@ -72,24 +76,57 @@ const Layout = ({ children }: LayoutProps) => {
               ))}
             </nav>
 
-            {/* Language Toggle */}
-            <div className="flex items-center space-x-1 bg-white/50 rounded-full p-1">
-              {languages.map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => setLanguage(lang)}
-                  className={`relative px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
-                    language === lang
-                      ? "text-white"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
+            {/* Right side: Auth + Language */}
+            <div className="flex items-center space-x-4">
+              {/* User Status */}
+              {user && (
+                <div className="hidden md:flex items-center space-x-2 text-sm text-muted-foreground">
+                  <User className="w-4 h-4" />
+                  <span>{user.email}</span>
+                </div>
+              )}
+
+              {/* Language Toggle */}
+              <div className="flex items-center space-x-1 bg-white/50 rounded-full p-1">
+                {languages.map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => setLanguage(lang)}
+                    className={`relative px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+                      language === lang
+                        ? "text-white"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {language === lang && (
+                      <span className="absolute inset-0 bg-primary rounded-full -z-10 transition-all duration-300" />
+                    )}
+                    <span className="relative z-10">{lang}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Auth Button */}
+              {user ? (
+                <Button
+                  onClick={signOut}
+                  variant="outline"
+                  size="sm"
+                  className="button-hover-scale"
                 >
-                  {language === lang && (
-                    <span className="absolute inset-0 bg-primary rounded-full -z-10 transition-all duration-300" />
-                  )}
-                  <span className="relative z-10">{lang}</span>
-                </button>
-              ))}
+                  <LogOut className="w-4 h-4 mr-2" />
+                  {t("logout")}
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => window.location.href = '/auth'}
+                  variant="default"
+                  size="sm"
+                  className="button-hover-scale"
+                >
+                  {t("login")}
+                </Button>
+              )}
             </div>
           </div>
         </div>
