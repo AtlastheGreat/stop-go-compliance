@@ -1,26 +1,42 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
+import { Language, getTranslation } from "@/lib/translations";
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-type Language = "EN" | "AL" | "IT" | "GR";
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) throw new Error("useLanguage must be used within Layout");
+  return context;
+};
 
 const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   const [language, setLanguage] = useState<Language>("EN");
 
+  const t = (key: string) => getTranslation(language, key as any);
+
   const navItems = [
-    { path: "/", label: "Driver Wizard" },
-    { path: "/manager", label: "Manager Portal" },
-    { path: "/faq", label: "Expert FAQ" },
+    { path: "/", label: t("driverWizard") },
+    { path: "/manager", label: t("managerPortal") },
+    { path: "/faq", label: t("expertFAQ") },
   ];
 
   const languages: Language[] = ["AL", "EN", "IT", "GR"];
 
   return (
-    <div className="min-h-screen gradient-bg-animated">
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      <div className="min-h-screen gradient-bg-animated">
       {/* Header */}
       <header className="sticky top-0 z-50 glass-effect border-b border-white/20 float-shadow">
         <div className="container mx-auto px-6 py-4">
@@ -32,7 +48,7 @@ const Layout = ({ children }: LayoutProps) => {
                 <span className="text-go-green">&Go</span>
               </h1>
               <div className="hidden md:block text-sm text-muted-foreground font-normal">
-                Ndalim i Sigurt, Nisje e Ligjshme
+                {t("tagline")}
               </div>
             </div>
 
@@ -89,20 +105,21 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-sm text-muted-foreground">
-              © 2025 Stop&Go. EU-Albania Compliance Platform.
+              © 2025 Stop&Go. {t("copyright")}
             </div>
             <div className="flex items-center space-x-6 text-sm">
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                About Us
+                {t("aboutUs")}
               </a>
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                Privacy Policy
+                {t("privacyPolicy")}
               </a>
             </div>
           </div>
         </div>
       </footer>
     </div>
+    </LanguageContext.Provider>
   );
 };
 

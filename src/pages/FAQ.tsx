@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
-import Layout from "@/components/Layout";
+import Layout, { useLanguage } from "@/components/Layout";
 
 interface FAQItem {
   question: string;
@@ -8,6 +8,7 @@ interface FAQItem {
 }
 
 const FAQ = () => {
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqData: FAQItem[] = [
@@ -39,28 +40,28 @@ const FAQ = () => {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center space-y-4 mb-12 fade-slide-up">
-          <h2 className="text-4xl font-bold text-foreground">Expert Hub: Complex Rules</h2>
-          <p className="text-lg text-muted-foreground">
-            Detailed explanations of EC 561/2006 regulations and special cases
+      <div className="max-w-4xl mx-auto py-4">
+        <div className="text-center space-y-5 mb-16 fade-slide-up px-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">{t("faqTitle")}</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {t("faqSubtitle")}
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-5 px-4">
           {faqData.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl overflow-hidden float-shadow fade-slide-up"
+              className="bg-white rounded-2xl overflow-hidden float-shadow fade-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
+                className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
               >
-                <span className="text-lg font-semibold text-foreground pr-4">{item.question}</span>
+                <span className="text-xl font-bold text-foreground pr-4">{item.question}</span>
                 <ChevronRight
-                  className={`w-6 h-6 text-primary flex-shrink-0 transition-transform duration-300 ${
+                  className={`w-7 h-7 text-primary flex-shrink-0 transition-transform duration-300 ${
                     openIndex === index ? "rotate-90" : ""
                   }`}
                 />
@@ -68,26 +69,24 @@ const FAQ = () => {
 
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  openIndex === index ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="px-6 pb-5 text-muted-foreground leading-relaxed">{item.answer}</div>
+                <div className="px-8 pb-6 text-muted-foreground leading-relaxed text-lg">{item.answer}</div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 p-6 bg-primary/5 border border-primary/20 rounded-xl fade-slide-up">
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-              <span className="text-primary font-bold text-lg">!</span>
+        <div className="mt-16 p-8 bg-primary/5 border border-primary/20 rounded-2xl fade-slide-up mx-4">
+          <div className="flex items-start space-x-6">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <span className="text-primary font-bold text-2xl">!</span>
             </div>
-            <div className="space-y-2">
-              <h3 className="font-semibold text-foreground">Need More Help?</h3>
-              <p className="text-sm text-muted-foreground">
-                These rules are complex and can vary by situation. When in doubt, always err on the side of safety
-                and compliance. Contact your fleet manager or a compliance expert for clarification on your specific
-                case.
+            <div className="space-y-3">
+              <h3 className="font-bold text-foreground text-xl">{t("needMoreHelp")}</h3>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                {t("helpMessage")}
               </p>
             </div>
           </div>
