@@ -290,10 +290,10 @@ const Index = () => {
     <div className="max-w-4xl mx-auto py-4">
       {/* Initial Step */}
       {step === "initial" && (
-        <div className="space-y-10 fade-slide-up">
-            <div className="text-center space-y-5 px-4">
-              <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">{t("initialTitle")}</h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("initialSubtitle")}</p>
+        <div className="space-y-8 fade-slide-up">
+            <div className="text-center space-y-4 px-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">{t("initialTitle")}</h2>
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">{t("initialSubtitle")}</p>
             </div>
 
             <div className="space-y-5 px-4">
@@ -318,10 +318,10 @@ const Index = () => {
 
         {/* Finished Driving Flow - Drive Time Question */}
         {step === "finished-driving" && !wizardState.driveTime && (
-          <div className="space-y-10 fade-slide-down">
-            <div className="text-center space-y-5 px-4">
-              <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">{t("driveTimeTitle")}</h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("driveTimeSubtitle")}</p>
+          <div className="space-y-8 fade-slide-down">
+            <div className="text-center space-y-4 px-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">{t("driveTimeTitle")}</h2>
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">{t("driveTimeSubtitle")}</p>
             </div>
 
             <div className="space-y-5 px-4">
@@ -361,10 +361,10 @@ const Index = () => {
 
         {/* Finished Driving Flow - Break Type Question */}
         {step === "finished-driving" && wizardState.driveTime && (
-          <div className="space-y-10 fade-slide-down">
-            <div className="text-center space-y-5 px-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">{t("breakTypeTitle")}</h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("breakTypeSubtitle")}</p>
+          <div className="space-y-8 fade-slide-down">
+            <div className="text-center space-y-4 px-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight">{t("breakTypeTitle")}</h2>
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">{t("breakTypeSubtitle")}</p>
             </div>
 
             <div className="space-y-5 px-4">
@@ -404,10 +404,10 @@ const Index = () => {
 
         {/* Ending Day Flow - Total Drive Question */}
         {step === "ending-day" && !wizardState.totalDrive && (
-          <div className="space-y-10 fade-slide-down">
-            <div className="text-center space-y-5 px-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">{t("totalDriveTitle")}</h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("totalDriveSubtitle")}</p>
+          <div className="space-y-8 fade-slide-down">
+            <div className="text-center space-y-4 px-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight">{t("totalDriveTitle")}</h2>
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">{t("totalDriveSubtitle")}</p>
             </div>
 
             <div className="space-y-5 px-4">
@@ -441,10 +441,10 @@ const Index = () => {
 
         {/* Ending Day Flow - Extensions Question */}
         {step === "ending-day" && wizardState.totalDrive === "10h" && (
-          <div className="space-y-10 fade-slide-down">
-            <div className="text-center space-y-5 px-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">{t("extensionsTitle")}</h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("extensionsSubtitle")}</p>
+          <div className="space-y-8 fade-slide-down">
+            <div className="text-center space-y-4 px-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight">{t("extensionsTitle")}</h2>
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">{t("extensionsSubtitle")}</p>
             </div>
 
             <div className="space-y-5 px-4">
