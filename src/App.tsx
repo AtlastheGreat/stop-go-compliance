@@ -21,7 +21,7 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route path="/auth" element={<Auth />} />
+            <Route path="/auth" element={<Layout><Auth /></Layout>} />
             <Route
               path="/*"
               element={
