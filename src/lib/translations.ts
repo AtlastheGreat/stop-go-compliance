@@ -63,6 +63,35 @@ export const translations = {
     
     // Result Messages
     startDayMessage: "You can start your shift. Make sure you have had adequate rest (minimum 11 hours or a reduced rest of 9 hours). Remember: You can drive up to 9 hours today (or 10 hours if this is one of your 2 extension days this week).",
+    startDayFunFact: "A well-rested driver is 50% less likely to be involved in an accident. The daily rest requirements (11 hours or minimum 9 hours reduced) are based on sleep science ensuring drivers get adequate recovery time.",
+    
+    // Driving Break Rules Messages
+    validBreakMessage: "Your previous break was valid and resets your driving clock. You have 4.5 hours of driving time available.",
+    validBreakFunFact: "The 4.5-hour rule is based on circadian rhythm research. Studies show that concentration naturally dips after about 4 hours of continuous activity, making breaks essential for safety.",
+    invalidBreakMessage: "You drove for 4.5 hours, but your previous break was not sufficient to reset the clock. SUGGESTION: You must take a full 45-minute break immediately.",
+    invalidBreakFunFact: "A proper 45-minute break allows both physical and mental recovery. Research shows it reduces micro-sleep episodes (brief moments of unintended sleep) by up to 80%.",
+    approachingLimitMessage: "You are approaching your 4.5-hour limit. You have approximately {time} hours remaining. Plan your next break soon.",
+    approachingLimitFunFact: "Pro tip: Experienced drivers often take their break at the 4-hour mark rather than waiting for 4.5 hours, ensuring they never cut it too close.",
+    compliantDrivingMessage: "You are fully compliant. You have approximately {time} hours of driving time remaining before you must take a 45-minute break.",
+    splitBreakFunFact: "The split break option (15+30 minutes) was introduced to give drivers flexibility while ensuring adequate rest. Many drivers use the 15-minute portion for vehicle checks.",
+    splitBreakStartedMessage: "You have correctly started a split break (15 min). SUGGESTION: To complete this break, your next break must be at least 30 minutes (taken within your 4.5h driving limit).",
+    splitBreakSequenceFunFact: "The 15+30 split must be in that exact order because the longer 30-minute portion is when most recovery occurs. The sequence is scientifically designed for optimal fatigue reduction.",
+    invalidSplitBreakMessage: "Your 30-minute break does not count as the first part of a split break (it must be 15-min first). SUGGESTION: Your next break must be a full 45-minute break.",
+    splitBreakRuleFunFact: "This rule prevents drivers from gaming the system. The 15-30 sequence was specifically designed based on fatigue research to ensure proper recovery timing.",
+    unclearBreakMessage: "Your break type is unclear. Please ensure you take a full 45-minute break before continuing.",
+    safetyFirstFunFact: "When in doubt, take a full 45-minute break. It's not just about compliance—proper rest can save lives, including your own.",
+    
+    // Daily Driving Rules Messages
+    compliantDailyMessage: "You are compliant with the 9-hour daily driving limit. You can now begin your daily rest period.",
+    dailyLimitFunFact: "Did you know? The 9-hour daily limit was established after extensive fatigue studies showed that driver alertness significantly decreases after 8-9 hours of continuous driving, increasing accident risk by up to 300%.",
+    oneHourRemainingMessage: "You have 1 hour remaining of your 9-hour daily limit. Plan to finish your drive soon or prepare to use a 10-hour extension if needed (and you have extensions available).",
+    planningTipFunFact: "Smart planning tip: Professional drivers often plan their routes to account for this time limit, ensuring rest stops are strategically placed to maintain compliance.",
+    extensionUsedMessage: "You have legally used one of your two 10-hour extensions for the week. SUGGESTION: You must now begin your daily rest.",
+    extensionFlexibilityFunFact: "The two 10-hour extensions per week provide flexibility for unexpected delays while maintaining overall safety standards across the industry.",
+    tooManyExtensionsMessage: "You cannot drive for 10 hours three times in one week. You are in violation. SUGGESTION: Park the vehicle and report this to your manager.",
+    chronicFatigueFunFact: "This rule prevents chronic fatigue accumulation. Studies show that even with adequate daily rest, repeated long driving days without sufficient weekly recovery significantly increase accident risk.",
+    exceededDailyLimitMessage: "You cannot drive for more than 10 hours in a single day. You are in violation. SUGGESTION: Park the vehicle immediately and report this to your manager.",
+    reactionTimeFunFact: "Beyond 10 hours of driving, reaction times can be comparable to driving under the influence of alcohol. This limit is non-negotiable for driver and public safety.",
     
     // Manager Portal
     managerTitle: "Fleet Manager Portal",
