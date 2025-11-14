@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Play, CheckCircle, Moon, Clock, Coffee } from "lucide-react";
 import { useLanguage } from "@/components/Layout";
+import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import WizardButton from "@/components/wizard/WizardButton";
 import ResultCard from "@/components/wizard/ResultCard";
 
@@ -17,6 +20,8 @@ interface WizardState {
 
 const Index = () => {
   const { t } = useLanguage();
+  const { user } = useAuth();
+  const { toast } = useToast();
   const [step, setStep] = useState<WizardStep>("initial");
   const [wizardState, setWizardState] = useState<WizardState>({
     flow: null,
@@ -32,6 +37,36 @@ const Index = () => {
     subtitle: string;
     message: string;
   } | null>(null);
+
+  const saveActivity = async (activityData: any) => {
+    if (!user) {
+      // Guest mode - don't save
+      return;
+    }
+
+    try {
+      const { error } = await supabase.from('driver_activities').insert({
+        user_id: user.id,
+        flow_type: activityData.flow_type,
+        drive_time: activityData.drive_time,
+        break_type: activityData.break_type,
+        total_drive: activityData.total_drive,
+        extensions: activityData.extensions,
+        result_status: activityData.result_status,
+        result_title: activityData.result_title,
+        result_message: activityData.result_message,
+      });
+
+      if (error) throw error;
+    } catch (error: any) {
+      console.error('Error saving activity:', error);
+      toast({
+        title: t('error'),
+        description: 'Failed to save activity',
+        variant: 'destructive',
+      });
+    }
+  };
 
   const handleInitialChoice = (flow: FlowType) => {
     setWizardState({ ...wizardState, flow });
@@ -153,6 +188,18 @@ const Index = () => {
     const result = checkDrivingBreakRules(wizardState.driveTime!, breakType);
     setResult(result);
     setStep("result");
+    
+    // Save activity
+    saveActivity({
+      flow_type: 'finishedDriving',
+      drive_time: wizardState.driveTime,
+      break_type: breakType,
+      total_drive: null,
+      extensions: null,
+      result_status: result.status,
+      result_title: result.title,
+      result_message: result.message,
+    });
   };
 
   const handleTotalDriveChoice = (totalDrive: string) => {
@@ -163,6 +210,18 @@ const Index = () => {
     const result = checkDailyDrivingRules(wizardState.totalDrive!, extensions);
     setResult(result);
     setStep("result");
+    
+    // Save activity
+    saveActivity({
+      flow_type: 'endingDay',
+      drive_time: null,
+      break_type: null,
+      total_drive: wizardState.totalDrive,
+      extensions: extensions,
+      result_status: result.status,
+      result_title: result.title,
+      result_message: result.message,
+    });
   };
 
   const resetWizard = () => {
