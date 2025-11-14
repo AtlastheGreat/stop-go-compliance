@@ -39,22 +39,22 @@ const ResultCard = ({ status, title, subtitle, message, funFact }: ResultCardPro
   return (
     <div className={`scale-up rounded-3xl ${config.bgColor} ${config.textColor} float-shadow border-2 ${config.borderColor} overflow-hidden`}>
       {/* Header Section with Icon and Status */}
-      <div className="p-8 pb-6 flex items-start space-x-6">
-        <div className={`flex-shrink-0 w-20 h-20 rounded-2xl ${config.badgeBg} flex items-center justify-center`}>
-          <Icon className="w-10 h-10" strokeWidth={2.5} />
+      <div className="p-6 sm:p-8 pb-4 sm:pb-6 flex items-start space-x-4 sm:space-x-6">
+        <div className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl ${config.badgeBg} flex items-center justify-center`}>
+          <Icon className="w-8 h-8 sm:w-10 sm:h-10" strokeWidth={2.5} />
         </div>
-        <div className="flex-1 space-y-3">
-          <div className={`inline-block px-4 py-1.5 rounded-full text-sm font-semibold ${config.badgeBg}`}>
+        <div className="flex-1 space-y-2 sm:space-y-3">
+          <div className={`inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold ${config.badgeBg}`}>
             {subtitle}
           </div>
-          <h3 className="text-3xl font-bold leading-tight">{title}</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{title}</h3>
         </div>
       </div>
 
       {/* Message Section */}
-      <div className="px-8 pb-8">
-        <div className={`p-6 rounded-2xl ${config.badgeBg} backdrop-blur-sm`}>
-          <p className="text-lg leading-relaxed font-medium">{message}</p>
+      <div className="px-6 sm:px-8 pb-6 sm:pb-8">
+        <div className={`p-4 sm:p-6 rounded-2xl ${config.badgeBg} backdrop-blur-sm`}>
+          <p className="text-base sm:text-lg leading-relaxed font-medium">{message}</p>
         </div>
         
         {/* Fun Fact Section */}
