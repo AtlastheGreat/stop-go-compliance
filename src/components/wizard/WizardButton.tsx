@@ -12,19 +12,19 @@ const WizardButton = ({ icon: Icon, label, onClick, variant = "default" }: Wizar
   return (
     <Button
       onClick={onClick}
-      className={`w-full py-5 sm:py-8 px-5 sm:px-8 text-left inline-flex items-start sm:items-center space-x-3 sm:space-x-6 sm:button-hover-scale sm:float-shadow rounded-2xl whitespace-normal ${
+      className={`w-full py-3 sm:py-6 px-3 sm:px-8 text-left flex items-center gap-2 sm:gap-6 sm:button-hover-scale sm:float-shadow rounded-2xl ${
         variant === "default"
           ? "bg-primary hover:bg-primary/90 text-primary-foreground"
           : "bg-white hover:bg-white/90 text-foreground"
       }`}
       size="lg"
     >
-      <div className={`flex-shrink-0 w-10 h-10 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center ${
+      <div className={`flex-shrink-0 w-8 h-8 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center ${
         variant === "default" ? "bg-primary-foreground/20" : "bg-primary/10"
       }`}>
-        <Icon className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={2.5} />
+        <Icon className="w-4 h-4 sm:w-7 sm:h-7" strokeWidth={2.5} />
       </div>
-      <span className="font-semibold text-base sm:text-lg flex-1 break-words leading-snug">{label}</span>
+      <span className="font-semibold text-sm sm:text-lg flex-1 break-words leading-tight sm:leading-snug">{label}</span>
     </Button>
   );
 };
