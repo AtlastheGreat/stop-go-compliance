@@ -220,7 +220,35 @@ export const translations = {
     
     // Result Messages
     startDayMessage: "Mund të filloni turnin tuaj. Sigurohuni që keni pasur pushim të mjaftueshëm (minimum 11 orë ose pushim i reduktuar 9 orë). Mos harroni: Mund të drejtoni deri në 9 orë sot (ose 10 orë nëse kjo është një nga 2 ditët tuaja të zgjatjes këtë javë).",
+    startDayFunFact: "Një shofer i pushuar mirë ka 50% më pak gjasa të përfshihet në aksident. Kërkesat për pushim ditor (11 orë ose minimumi 9 orë i reduktuar) bazohen në shkencën e gjumit.",
     
+    // Driving Break Rules Messages
+    validBreakMessage: "Pushimi juaj i mëparshëm ishte i vlefshëm dhe rivendos orarin e drejtimit. Keni 4.5 orë drejtim të disponueshme.",
+    validBreakFunFact: "Rregulli 4.5-orësh bazohet në ritmet cirkadiane. Studimet tregojnë se përqendrimi bie pas rreth 4 orësh aktivitet të pandërprerë, ndaj pushimet janë thelbësore.",
+    invalidBreakMessage: "Keni drejtuar 4.5 orë, por pushimi i mëparshëm nuk ishte i mjaftueshëm për të rivendosur orën. SUGJERIM: Duhet të bëni menjëherë një pushim të plotë 45 minuta.",
+    invalidBreakFunFact: "Një pushim i plotë 45-minutësh lejon rimëkëmbje fizike dhe mendore, duke ulur mikro-gjumet deri në 80%.",
+    approachingLimitMessage: "Po i afroheni kufirit prej 4.5 orësh. Keni rreth {time} orë të mbetura. Planifikoni pushimin tuaj së shpejti.",
+    approachingLimitFunFact: "Këshillë: Shoferët me përvojë bëjnë pushim rreth orës së 4-t për të mos rrezikuar afatin 4.5 orë.",
+    compliantDrivingMessage: "Jeni plotësisht në pajtueshmëri. Keni rreth {time} orë drejtim të mbetura para se të duhet të bëni pushimin 45 minuta.",
+    splitBreakFunFact: "Opsioni i pushimit të ndarë (15+30 minuta) jep fleksibilitet duke siguruar rimëkëmbje të mjaftueshme.",
+    splitBreakStartedMessage: "Keni filluar saktë pushimin e ndarë (15 min). SUGJERIM: Për ta përfunduar, pushimi i radhës duhet të jetë të paktën 30 minuta (brenda limitit 4.5 orë).",
+    splitBreakSequenceFunFact: "Renditja 15+30 është e detyrueshme sepse pjesa 30-min është kur ndodh shumica e rimëkëmbjes.",
+    invalidSplitBreakMessage: "Pushimi juaj 30 minuta nuk llogaritet si pjesa e parë e pushimit të ndarë (duhet të jetë 15-min i pari). SUGJERIM: Pushimi i radhës duhet të jetë 45 minuta i plotë.",
+    splitBreakRuleFunFact: "Kjo parandalon abuzimet; sekuenca 15-30 bazohet në kërkime mbi lodhjen.",
+    unclearBreakMessage: "Lloji i pushimit tuaj nuk është i qartë. Sigurohuni të bëni një pushim 45-min para se të vazhdoni.",
+    safetyFirstFunFact: "Kur dyshoni, bëni pushim 45-min. Nuk është vetëm pajtueshmëri—është siguri.",
+    
+    // Daily Driving Rules Messages
+    compliantDailyMessage: "Jeni në pajtueshmëri me kufirin ditor 9 orë. Tani mund të filloni pushimin ditor.",
+    dailyLimitFunFact: "Kufiri 9-orësh u vendos pasi studimet treguan rënie të vigjilencës pas 8-9 orësh drejtim.",
+    oneHourRemainingMessage: "Ju ka mbetur 1 orë nga kufiri ditor 9 orë. Planifikoni të përfundoni drejtimin ose përdorni zgjatje 10-orëshe nëse disponohet.",
+    planningTipFunFact: "Planifikoni ndalesat në mënyrë strategjike për të ruajtur pajtueshmërinë.",
+    extensionUsedMessage: "Keni përdorur ligjërisht njërën nga 2 zgjatjet 10-orëshe për javën. SUGJERIM: Filloni pushimin ditor.",
+    extensionFlexibilityFunFact: "Dy zgjatjet javore japin fleksibilitet për vonesa të papritura duke ruajtur sigurinë.",
+    tooManyExtensionsMessage: "Nuk mund të drejtoni 10 orë tre herë në një javë. Jeni në shkelje. SUGJERIM: Ndaloni mjetin dhe raportoni te menaxheri.",
+    chronicFatigueFunFact: "Kjo parandalon grumbullimin kronik të lodhjes gjatë javës.",
+    exceededDailyLimitMessage: "Nuk mund të drejtoni më shumë se 10 orë në një ditë. Jeni në shkelje. SUGJERIM: Ndaloni menjëherë dhe raportoni te menaxheri.",
+    reactionTimeFunFact: "Pas 10 orësh, koha e reagimit rritet në nivele të rrezikshme—kufiri është i panegociueshëm.",
     // Manager Portal
     managerTitle: "Portali i Menaxherit të Flotës",
     managerSubtitle: "Identifikohuni për të hyrë në të dhënat e pajtueshmërisë së shoferëve",
@@ -348,7 +376,35 @@ export const translations = {
     
     // Result Messages
     startDayMessage: "Puoi iniziare il tuo turno. Assicurati di aver avuto un riposo adeguato (minimo 11 ore o un riposo ridotto di 9 ore). Ricorda: Puoi guidare fino a 9 ore oggi (o 10 ore se questo è uno dei tuoi 2 giorni di estensione questa settimana).",
+    startDayFunFact: "Un conducente riposato ha il 50% di probabilità in meno di incidenti. I requisiti di riposo (11 ore o 9 ridotte) si basano sulla scienza del sonno.",
     
+    // Driving Break Rules Messages
+    validBreakMessage: "La tua pausa precedente era valida e azzera il tempo di guida. Hai 4,5 ore di guida disponibili.",
+    validBreakFunFact: "La regola delle 4,5 ore si basa sui ritmi circadiani; la concentrazione cala dopo ~4 ore di attività continua.",
+    invalidBreakMessage: "Hai guidato per 4,5 ore, ma la pausa precedente non è sufficiente per azzerare il tempo. SUGGERIMENTO: fai subito una pausa completa di 45 minuti.",
+    invalidBreakFunFact: "Una pausa di 45 minuti consente recupero fisico e mentale, riducendo i microsonni fino all'80%.",
+    approachingLimitMessage: "Stai avvicinandoti al limite di 4,5 ore. Ti restano circa {time} ore. Pianifica presto la prossima pausa.",
+    approachingLimitFunFact: "Consiglio: molti conducenti si fermano a 4 ore per non rischiare il limite.",
+    compliantDrivingMessage: "Sei pienamente conforme. Ti restano circa {time} ore di guida prima di dover fare una pausa di 45 minuti.",
+    splitBreakFunFact: "La pausa frazionata (15+30) offre flessibilità garantendo comunque recupero adeguato.",
+    splitBreakStartedMessage: "Hai iniziato correttamente la pausa frazionata (15 min). SUGGERIMENTO: la prossima pausa deve essere di almeno 30 minuti (entro il limite di 4,5 ore).",
+    splitBreakSequenceFunFact: "L'ordine 15+30 è obbligatorio perché i 30 minuti garantiscono il recupero principale.",
+    invalidSplitBreakMessage: "La pausa di 30 minuti non vale come prima parte della pausa frazionata (deve essere prima 15 min). SUGGERIMENTO: la prossima pausa deve essere completa di 45 minuti.",
+    splitBreakRuleFunFact: "Questa regola evita abusi; la sequenza 15-30 nasce da ricerche sulla fatica.",
+    unclearBreakMessage: "Il tipo di pausa non è chiaro. Assicurati di fare una pausa completa di 45 minuti prima di continuare.",
+    safetyFirstFunFact: "Nel dubbio, fai una pausa di 45 minuti. Non è solo conformità—è sicurezza.",
+    
+    // Daily Driving Rules Messages
+    compliantDailyMessage: "Sei conforme al limite giornaliero di 9 ore. Ora puoi iniziare il riposo giornaliero.",
+    dailyLimitFunFact: "Il limite di 9 ore è stato fissato dopo studi che mostrano calo di vigilanza dopo 8-9 ore.",
+    oneHourRemainingMessage: "Ti resta 1 ora del limite giornaliero di 9 ore. Termina la guida o valuta un'estensione a 10 ore se disponibile.",
+    planningTipFunFact: "Pianifica le soste in modo strategico per mantenere la conformità.",
+    extensionUsedMessage: "Hai usato legalmente una delle due estensioni da 10 ore della settimana. SUGGERIMENTO: inizia il riposo giornaliero.",
+    extensionFlexibilityFunFact: "Le due estensioni settimanali offrono flessibilità per ritardi imprevisti mantenendo la sicurezza.",
+    tooManyExtensionsMessage: "Non puoi guidare 10 ore per tre volte in una settimana. Sei in violazione. SUGGERIMENTO: ferma il veicolo e informa il manager.",
+    chronicFatigueFunFact: "Evita l'accumulo cronico di fatica durante la settimana.",
+    exceededDailyLimitMessage: "Non puoi guidare per più di 10 ore in un giorno. Sei in violazione. SUGGERIMENTO: fermati subito e informa il manager.",
+    reactionTimeFunFact: "Oltre le 10 ore i tempi di reazione peggiorano pericolosamente—il limite è non negoziabile.",
     // Manager Portal
     managerTitle: "Portale Manager Flotta",
     managerSubtitle: "Accedi per accedere ai dati di conformità dei conducenti",
@@ -476,7 +532,35 @@ export const translations = {
     
     // Result Messages
     startDayMessage: "Μπορείτε να ξεκινήσετε τη βάρδια σας. Βεβαιωθείτε ότι είχατε επαρκή ανάπαυση (ελάχιστο 11 ώρες ή μειωμένη ανάπαυση 9 ωρών). Θυμηθείτε: Μπορείτε να οδηγήσετε έως 9 ώρες σήμερα (ή 10 ώρες αν αυτή είναι μία από τις 2 μέρες επέκτασής σας αυτή την εβδομάδα).",
+    startDayFunFact: "Ένας ξεκούραστος οδηγός έχει 50% λιγότερες πιθανότητες για ατύχημα. Οι απαιτήσεις ημερήσιας ανάπαυσης (11 ώρες ή ελάχιστο 9 μειωμένες) βασίζονται στη φυσιολογία του ύπνου.",
     
+    // Driving Break Rules Messages
+    validBreakMessage: "Το προηγούμενο διάλειμμά σας ήταν έγκυρο και μηδενίζει τον χρόνο οδήγησης. Διαθέτετε 4,5 ώρες οδήγησης.",
+    validBreakFunFact: "Ο κανόνας 4,5 ωρών βασίζεται στους κιρκαδικούς ρυθμούς· η συγκέντρωση μειώνεται μετά από ~4 ώρες συνεχούς δραστηριότητας.",
+    invalidBreakMessage: "Οδηγήσατε 4,5 ώρες, αλλά το προηγούμενο διάλειμμα δεν επαρκεί για μηδενισμό. ΠΡΟΤΑΣΗ: Κάντε αμέσως πλήρες διάλειμμα 45 λεπτών.",
+    invalidBreakFunFact: "Ένα διάλειμμα 45' επιτρέπει σωματική και νοητική ανάκαμψη, μειώνοντας τα μικρο-ύπνια έως 80%.",
+    approachingLimitMessage: "Πλησιάζετε το όριο των 4,5 ωρών. Απομένουν περίπου {time} ώρες. Προγραμματίστε σύντομα το επόμενο διάλειμμα.",
+    approachingLimitFunFact: "Συμβουλή: έμπειροι οδηγοί σταματούν στις 4 ώρες για ασφάλεια.",
+    compliantDrivingMessage: "Είστε πλήρως σύμφωνοι. Απομένουν περίπου {time} ώρες πριν χρειαστεί διάλειμμα 45 λεπτών.",
+    splitBreakFunFact: "Η διαίρεση διαλείμματος (15+30) προσφέρει ευελιξία με επαρκή ανάκαμψη.",
+    splitBreakStartedMessage: "Ξεκινήσατε σωστά τη διαίρεση (15'). ΠΡΟΤΑΣΗ: το επόμενο διάλειμμα πρέπει να είναι τουλάχιστον 30' (εντός του ορίου 4,5 ωρών).",
+    splitBreakSequenceFunFact: "Η σειρά 15+30 είναι υποχρεωτική γιατί τα 30' προσφέρουν το κύριο μέρος της ανάκαμψης.",
+    invalidSplitBreakMessage: "Το διάλειμμα 30' δεν μετρά ως πρώτο μέρος της διαίρεσης (πρέπει πρώτα 15'). ΠΡΟΤΑΣΗ: το επόμενο διάλειμμα πρέπει να είναι πλήρες 45'.",
+    splitBreakRuleFunFact: "Αποτρέπει καταχρήσεις· η σειρά 15-30 βασίζεται σε έρευνα κόπωσης.",
+    unclearBreakMessage: "Ο τύπος του διαλείμματος δεν είναι σαφής. Κάντε πλήρες διάλειμμα 45' πριν συνεχίσετε.",
+    safetyFirstFunFact: "Σε αμφιβολία, κάντε 45' διάλειμμα. Είναι θέμα ασφάλειας.",
+    
+    // Daily Driving Rules Messages
+    compliantDailyMessage: "Είστε σύμφωνοι με το ημερήσιο όριο των 9 ωρών. Μπορείτε να αρχίσετε την ημερήσια ανάπαυση.",
+    dailyLimitFunFact: "Το όριο 9 ωρών καθιερώθηκε μετά από μελέτες μείωσης εγρήγορσης μετά από 8-9 ώρες.",
+    oneHourRemainingMessage: "Απομένει 1 ώρα από το ημερήσιο όριο 9 ωρών. Ολοκληρώστε σύντομα ή χρησιμοποιήστε επέκταση 10 ωρών αν διαθέσιμη.",
+    planningTipFunFact: "Σχεδιάστε στρατηγικά τις στάσεις για διατήρηση συμμόρφωσης.",
+    extensionUsedMessage: "Χρησιμοποιήσατε νόμιμα μία από τις δύο επεκτάσεις 10 ωρών της εβδομάδας. ΠΡΟΤΑΣΗ: Ξεκινήστε την ημερήσια ανάπαυση.",
+    extensionFlexibilityFunFact: "Οι δύο εβδομαδιαίες επεκτάσεις προσφέρουν ευελιξία για απρόβλεπτες καθυστερήσεις με ασφάλεια.",
+    tooManyExtensionsMessage: "Δεν μπορείτε να οδηγείτε 10 ώρες τρεις φορές την εβδομάδα. Παράβαση. ΠΡΟΤΑΣΗ: Σταματήστε και ενημερώστε τον διαχειριστή.",
+    chronicFatigueFunFact: "Αποτρέπει τη χρόνια συσσώρευση κόπωσης.",
+    exceededDailyLimitMessage: "Δεν μπορείτε να οδηγείτε πάνω από 10 ώρες σε μία μέρα. Παράβαση. ΠΡΟΤΑΣΗ: Σταματήστε αμέσως και ενημερώστε τον διαχειριστή.",
+    reactionTimeFunFact: "Μετά τις 10 ώρες οι χρόνοι αντίδρασης χειροτερεύουν επικίνδυνα—το όριο δεν διαπραγματεύεται.",
     // Manager Portal
     managerTitle: "Πύλη Διαχειριστή Στόλου",
     managerSubtitle: "Συνδεθείτε για πρόσβαση στα δεδομένα συμμόρφωσης οδηγών",
