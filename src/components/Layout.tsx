@@ -40,7 +40,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      <div className="min-h-screen gradient-bg-animated">
+      <div className="min-h-screen gradient-bg-animated overflow-x-hidden">
       {/* Header */}
       <header className="sticky top-0 z-50 glass-effect border-b border-white/20 float-shadow">
         <div className="container mx-auto px-6 py-4">
